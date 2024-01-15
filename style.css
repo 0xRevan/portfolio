@@ -1,66 +1,89 @@
-/* Base Styles */
-body, html {
+/* General and Reset Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+body, html {
     font-family: 'MS Sans Serif', sans-serif;
-    background-color: #008080; /* Classic Windows 95 teal background */
+    background-color: #008080; /* Classic teal desktop color */
+    overflow: hidden; /* Hide scrollbars */
+    height: 100vh;
 }
 
+/* Desktop Style */
 .desktop {
-    height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
-/* Window Frame */
-.window-frame {
-    background-color: white;
-    border: 2px solid #000;
-    box-shadow: 3px 3px 0 #000;
-    max-width: 800px; /* Set a max-width for large screens */
-    width: 100%;
+/* Window Frame Style */
+.window-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
 }
+
+.inner-window {
+    border: 2px solid #000;
+    background-color: #c0c0c0;
+    padding: 10px;
+    min-height: 200px;
+}
+
+.inner-window-title-bar {
+    background: linear-gradient(to right, #000080, #1084d0);
+    color: white;
+    padding: 3px 6px;
+    font-weight: bold;
+    cursor: default;
+}
+
 
 /* Title Bar */
 .title-bar {
-    background: linear-gradient(to right, #000080, #1084D0); /* Gradient title bar */
+    background: linear-gradient(to right, #000080, #1084d0); /* Gradient title bar */
     color: white;
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: move; /* Hand cursor for draggable effect */
+    cursor: default;
 }
 
 .title-bar-text {
     font-weight: bold;
 }
 
+/* Title Bar Buttons */
 .title-bar-controls button {
-    background: #C0C0C0;
+    background: #c0c0c0;
     border: 1px solid #fff;
     padding: 3px 6px;
-    margin-left: 2px;
+    margin-left: 3px;
     cursor: pointer;
-    border-radius: 2px; /* Slightly rounded corners */
-    font-size: 0.75rem; /* Smaller font size for buttons */
+    font-size: 0.8rem;
 }
 
 .title-bar-controls button:hover {
-    background: #E0E0E0; /* Lighter on hover */
+    background: #e0e0e0;
 }
 
 .title-bar-controls button:active {
-    background: #A0A0A0; /* Darker on click */
+    transform: translateY(1px);
 }
 
 /* Window Body */
 .window-body {
-    padding: 15px;
-    overflow-y: auto; /* Enable scrolling for overflow content */
+    padding: 20px;
+    background: #fff;
+    height: 500px; /* Fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 /* Taskbar */
@@ -69,29 +92,35 @@ body, html {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #C0C0C0;
-    box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2);
+    background: #c0c0c0;
     display: flex;
     align-items: center;
     padding: 5px 10px;
-    z-index: 10; /* Ensure taskbar stays above other elements */
+    box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .start-button {
     background: #000080;
     color: white;
-    padding: 5px 10px;
+    padding: 5px 15px;
     font-weight: bold;
     cursor: pointer;
     border: none;
 }
 
 .start-button:hover {
-    background: #000099; /* Slightly darker on hover */
+    background: #0000a0;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .window-frame {
-        margin: 10px; /* Smaller margin for smaller screens */
-        width: auto;
+        width: 95%;
+        margin: 10px;
+    }
+    .window-body {
+        height: auto;
+    }
+}
+
+/* Additional Styling as Needed for Content */
