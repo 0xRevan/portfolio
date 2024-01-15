@@ -1,0 +1,97 @@
+/* Base Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'MS Sans Serif', sans-serif;
+    background-color: #008080; /* Classic Windows 95 teal background */
+}
+
+.desktop {
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Window Frame */
+.window-frame {
+    background-color: white;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0 #000;
+    max-width: 800px; /* Set a max-width for large screens */
+    width: 100%;
+}
+
+/* Title Bar */
+.title-bar {
+    background: linear-gradient(to right, #000080, #1084D0); /* Gradient title bar */
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move; /* Hand cursor for draggable effect */
+}
+
+.title-bar-text {
+    font-weight: bold;
+}
+
+.title-bar-controls button {
+    background: #C0C0C0;
+    border: 1px solid #fff;
+    padding: 3px 6px;
+    margin-left: 2px;
+    cursor: pointer;
+    border-radius: 2px; /* Slightly rounded corners */
+    font-size: 0.75rem; /* Smaller font size for buttons */
+}
+
+.title-bar-controls button:hover {
+    background: #E0E0E0; /* Lighter on hover */
+}
+
+.title-bar-controls button:active {
+    background: #A0A0A0; /* Darker on click */
+}
+
+/* Window Body */
+.window-body {
+    padding: 15px;
+    overflow-y: auto; /* Enable scrolling for overflow content */
+}
+
+/* Taskbar */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #C0C0C0;
+    box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    z-index: 10; /* Ensure taskbar stays above other elements */
+}
+
+.start-button {
+    background: #000080;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.start-button:hover {
+    background: #000099; /* Slightly darker on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .window-frame {
+        margin: 10px; /* Smaller margin for smaller screens */
+        width: auto;
